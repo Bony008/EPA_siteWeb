@@ -1,0 +1,757 @@
+:root {
+  --ink: #0a0a09;
+  --paper: #f2f0ea;
+  --gold: #c9a35b;
+  --muted: #8c8a83;
+  --line: rgba(10, 10, 9, 0.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.hero {
+  min-height: 94vh;
+  color: #fff;
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(4, 4, 4, 0.9), rgba(4, 4, 4, 0.27) 70%),
+    url("FIRSTLOVE.jpg") center/cover;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 5.5vw 30px;
+  overflow: hidden;
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), transparent 38%);
+  pointer-events: none;
+}
+
+.navbar,
+.hero-content,
+.hero-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+  padding-bottom: 19px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font:
+    600 1.2rem "Cormorant Garamond",
+    serif;
+  letter-spacing: 0.03em;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  border-radius: 50%;
+}
+
+.brand small {
+  display: block;
+  color: var(--gold);
+  font:
+    600 0.57rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 46px);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.nav-links a {
+  opacity: 0.82;
+  transition:
+    color 0.25s,
+    opacity 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+  opacity: 1;
+}
+.nav-contact {
+  color: var(--gold);
+}
+
+.nav-contact span,
+.text-link span,
+.under-link span {
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+}
+
+.hero-content {
+  margin: auto 0 10vh;
+  max-width: 670px;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+h2 {
+  font:
+    500 clamp(3.7rem, 8vw, 7.2rem)/0.88 "Cormorant Garamond",
+    serif;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 {
+  margin: 25px 0 27px;
+}
+
+.hero h1 em,
+h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-copy {
+  max-width: 400px;
+  color: rgba(255, 255, 255, 0.77);
+  font-size: 0.9rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 35px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 22px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.text-link,
+.under-link {
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  font-size: 0.75rem;
+}
+
+.hero-footer {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.scroll-note b {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+.reveal {
+  animation: rise 0.9s both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.45s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ticker-container {
+  background: var(--gold);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+}
+
+.ticker-text {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+  font:
+    600 0.78rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.ticker-text span {
+  padding-right: 3rem;
+}
+
+.ticker-text b {
+  color: #fff;
+  margin: 0 14px;
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 130px 5.5vw;
+}
+
+.mission-section {
+  max-width: none;
+  background: var(--paper);
+}
+
+.mission-grid {
+  max-width: 1180px;
+  margin: 45px auto 105px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 10vw;
+}
+
+.section h2 {
+  font-size: clamp(3rem, 6vw, 5.6rem);
+}
+
+.mission-copy {
+  align-self: end;
+  max-width: 370px;
+  color: #5e5d58;
+  font-size: 0.9rem;
+}
+
+.mission-copy p {
+  margin-bottom: 25px;
+}
+
+.under-link {
+  color: var(--ink);
+}
+
+.values-grid {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+.value-item {
+  padding: 25px 30px 10px 0;
+  border-right: 1px solid var(--line);
+}
+.value-item:not(:first-child) {
+  padding-left: 30px;
+}
+.value-item:last-child {
+  border: 0;
+}
+.value-item span {
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+.value-item h3 {
+  font:
+    600 2rem "Cormorant Garamond",
+    serif;
+  margin: 18px 0 5px;
+}
+.value-item p {
+  color: var(--muted);
+  font-size: 0.78rem;
+  max-width: 210px;
+}
+.pastor-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 9vw;
+  align-items: center;
+  background: var(--ink);
+  color: #fff;
+  max-width: none;
+  padding-left: 13vw;
+  padding-right: 13vw;
+}
+.pastor-image {
+  height: 520px;
+  overflow: hidden;
+}
+.pastor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+.pastor-content h2 {
+  margin: 27px 0;
+}
+.pastor-content p {
+  max-width: 380px;
+  color: #99978f;
+  font-size: 0.86rem;
+}
+.pastor-name {
+  color: var(--gold) !important;
+  margin-top: 28px;
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.pastor-name span {
+  color: #fff;
+  padding: 0 8px;
+}
+.schedule-section {
+  max-width: none;
+  background: #e8e5dc;
+  padding-top: 92px;
+  padding-bottom: 92px;
+}
+.schedule-heading {
+  max-width: 1180px;
+  margin: 22px auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.schedule-heading p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.schedule-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: clamp(1.3rem, 2.2vw, 3rem);
+  align-items: center;
+}
+.schedule-copy {
+  min-width: 0;
+}
+.service-list {
+  max-width: 1180px;
+  margin: auto;
+  border-top: 1px solid var(--line);
+}
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.service-day,
+.service-time {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.service-row strong {
+  font:
+    600 1.55rem "Cormorant Garamond",
+    serif;
+  line-height: 1.1;
+}
+.service-time {
+  text-align: right;
+  color: var(--ink);
+}
+.service-time small {
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.schedule-visual {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(10, 10, 9, 0.18);
+  transition: transform 0.5s ease;
+}
+.schedule-visual:hover {
+  transform: scale(1.02);
+}
+.schedule-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 7, 0.72);
+  z-index: 1;
+}
+.schedule-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.5s ease;
+}
+.schedule-visual:hover img {
+  filter: brightness(0.95);
+}
+.book-mark {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  border: 1px solid var(--gold);
+  padding: 55px 45px;
+  text-align: center;
+  font:
+    500 5rem/1 "Cormorant Garamond",
+    serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.book-mark span {
+  display: block;
+  color: var(--gold);
+  font:
+    700 0.58rem "DM Sans",
+    sans-serif;
+  letter-spacing: 0.25em;
+  margin-top: 10px;
+}
+.resource-section {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+  align-items: center;
+  background: var(--gold);
+}
+.resource-art {
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  background: #111 url("Comment-naitre-de-nouveau-et-eviter-l-enfer.jpg") center/cover;
+  position: relative;
+}
+.resource-art:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 7, 0.72);
+}
+.resource-content h2 {
+  margin: 25px 0;
+}
+.resource-content p {
+  max-width: 350px;
+  color: #4e422f;
+  font-size: 0.88rem;
+  margin-bottom: 28px;
+}
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px 10vw;
+  align-items: end;
+}
+.map-card {
+  min-height: 160px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.map-card:hover {
+  background: var(--ink);
+  color: #fff;
+}
+.map-card strong {
+  font:
+    600 1.4rem "Cormorant Garamond",
+    serif;
+}
+.map-card span:not(.map-pin) {
+  font-size: 0.75rem;
+}
+.map-card b {
+  margin-left: auto;
+  align-self: flex-start;
+  color: var(--gold);
+}
+.map-pin {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+.contact-details {
+  grid-column: 2;
+  display: flex;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+.contact-details a:hover {
+  color: var(--gold);
+}
+footer {
+  background: var(--ink);
+  color: #fff;
+  padding: 45px 5.5vw 20px;
+  position: relative;
+  overflow: hidden;
+}
+.footer-top,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.back-top {
+  color: var(--gold);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.watermark {
+  color: rgba(201, 163, 91, 0.16);
+  font:
+    700 clamp(6rem, 19vw, 18rem)/0.8 "DM Sans",
+    sans-serif;
+  letter-spacing: -0.09em;
+  white-space: nowrap;
+  margin: 65px 0 45px;
+  transform: translateX(-1%);
+}
+.footer-bottom {
+  color: #74736d;
+  border-top: 1px solid #292927;
+  padding-top: 15px;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 760px) {
+  .hero {
+    min-height: 100svh;
+    padding: 20px 6vw 24px;
+    background-position: 62% center;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: 0;
+    background: var(--ink);
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 190px;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .hero-content {
+    margin-bottom: auto;
+    padding-top: 25vh;
+  }
+  .hero h1 {
+    font-size: 4.1rem;
+  }
+  .hero-footer {
+    font-size: 0.56rem;
+  }
+  .scroll-note {
+    display: none;
+  }
+  .section {
+    padding: 85px 7vw;
+  }
+  .mission-grid,
+  .pastor-section,
+  .resource-section,
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .mission-grid {
+    margin-bottom: 65px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .value-item,
+  .value-item:not(:first-child) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 23px 0;
+  }
+  .pastor-section {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+  .pastor-image {
+    height: 370px;
+  }
+  .schedule-heading {
+    display: block;
+  }
+  .schedule-heading p {
+    margin-top: 22px;
+  }
+  .service-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .service-row strong {
+    grid-column: 1/-1;
+    grid-row: 1;
+    font-size: 1.45rem;
+  }
+  .service-day {
+    grid-row: 2;
+  }
+  .service-time {
+    grid-row: 2;
+  }
+  .contact-details {
+    grid-column: auto;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-top,
+  .footer-bottom {
+    align-items: flex-start;
+    gap: 25px;
+    flex-direction: column;
+  }
+  .footer-bottom span:last-child {
+    text-align: left;
+  }
+  .watermark {
+    margin: 70px 0 50px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .ticker-text {
+    animation: none;
+  }
+}
